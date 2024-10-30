@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read More Example</title>
+    <style>
+        /* Стили для модального окна */
+        .modal {
+            display: none; /* Окно скрыто по умолчанию */
+            position: fixed; /* Фиксированное положение окна */
+            z-index: 1; /* Уровень по оси z */
+            left: 0;
+            top: 0;
+            width: 100%; /* Занимает всю ширину экрана */
+            height: 100%; /* Занимает всю высоту экрана */
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto; /* Центрирование окна */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px; /* Максимальная ширина */
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Dish: Салат "Цезарь"</h2>
+<p>
+    <button id="readMoreBtn">Read more about ingredients</button>
+</p>
+
+<!-- Модальное окно -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Ingredients</h3>
+        <p>Chicken, lettuce, Parmesan cheese, croutons, Caesar dressing.</p>
+    </div>
+</div>
+
+<script>
+    // Получаем элементы
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("readMoreBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    // Открываем модальное окно при клике на кнопку
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // Закрываем модальное окно при клике на крестик
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Закрываем модальное окно при клике вне его области
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

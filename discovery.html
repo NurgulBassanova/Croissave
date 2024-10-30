@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Adamina:wght@400&family=Allon:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script type="text/javascript" src="readmore.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="wrapper" style="background-color: #b8dbc9;">
+        <header class="header">
+            <nav class="navbar navbar-expand-lg" style="background-color: #0c720f;">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link active" aria-current="page" href="main.html">Croissave</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="restaurants.html">Restaurants</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="feedback.html">Feedback</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="">Account</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="gallery,html">Gallery</a>
+                        </li>
+                    </ul>
+                    <div class="buttons mb-3" style="padding: 10px;">
+                        <a href="signin.html" class="btn btn-primary auth-link">Login</a>
+                        <a href="signup.html" class="btn btn-outline-secondary reg-link ml-2">Register</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <a href="restaurants.html" class="btn btn-outline-success btn-lg back-button">Back</a>
+        <h2 style="font-family: 'Allan', serif; font-size: 40px; margin: 30px 100px 10px 80px; color: rgb(11, 80, 41)">Discovery coffee</h2>
+        <form class="search-form" id="searchForm">
+            <input type="search" id="searchInput" name="query" placeholder="Search" required>
+            <button class="search-button" type="submit">Find</button>
+        </form>
+        <div class="price-filter">
+            <label for="minPrice">Minimum Price:</label>
+            <input type="number" id="minPrice" placeholder="" />
+        
+            <label for="maxPrice">Maximum Price:</label>
+            <input type="number" id="maxPrice" placeholder="" />
+        
+            <button onclick="filterByPrice()">Filter</button>
+        </div>
+        <div class="layout">
+            <div class="cart">
+                <h3 style="font-family: 'Adamina', serif; font-size: 25px; margin: 15px 10px 20px 10px; text-align: center; color: black;">Cart</h3>
+            </div>
+            <div class="all-blocs" id="productList">
+                <div id="modal_tab" class="modal_window">
+                    <div class="modal-content">
+                        <span style="margin-right: 10px; text-align: right" class="close" onclick="closeModal()">&times;</span>
+                        <div id="modalBody">
+                            <p>${ingredients}</p>
+                            <p>${allergens}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product">
+                    <div class="product-info">
+                        <p class="imya">Croissant</p>
+                        <span class="read-more" onclick="openModal('Flour, butter, milk, water, sugar, salt, yeast, and eggs', 'Gluten (wheat), dairy (butter, milk), and eggs')">read more</span>
+                    </div>
+                    <img src="images/croissant.jpeg" alt="">
+                    <p class="old"><s>1700 tg</s></p>
+                    <p class="new">900 tg</p>
+                    <form  id="form2">
+                        <input type="submit" value="+" class="addd">
+                        <input type="submit" value="-" class="remove">
+                    </form>
+                </div>
+        
+                <div class="product" data-price="500">
+                    <div class="product-info">
+                        <p class="imya">Cookie</p>
+                        <span class="read-more" onclick="openModal('Flour, butter, eggs, sugar, sinnamon and chocolate', 'Gluten (wheat), dairy, eggs')">read more</span>
+                    </div>
+                    <img src="images/cookie.jpeg" alt="">
+                    <p style="margin-top: 15px;" class="old"><s>1000 tg</s></p>
+                    <p style="margin-top: 15px;" class="new">500 tg</p>
+                    <form>
+                        <input style="margin-top: -15px;" type="submit" value="+" class="addd">
+                        <input style="margin-top: -15px;" type="submit" value="-" class="remove">
+                    </form>
+                </div>
+                <div class="product" data-price="1650">
+                    <div class="product-info">
+                        <p class="imya">Chicken sandwich</p>
+                        <span class="read-more" onclick="openModal('Chicken sandwich', 'Bread, chicken, cheese, tomatoes, cucumber and lettuce', 'Gluten (wheat), dairy')">read more</span>
+                    </div>
+                    <img src="images/sandwich.jpeg" alt="Chicken sandwich">
+                    <p class="old"><s>2500 tg</s></p>
+                    <p class="new">1650 tg</p>
+                    <form>
+                        <input style="margin-top: -15px;" type="submit" value="+" class="addd">
+                        <input style="margin-top: -15px;" type="submit" value="-" class="remove">
+                    </form>
+                </div>
+                <div class = "product" data-price="400">
+                    <div class="product-info">
+                        <p class="imya">Apple juice</p>
+                        <span class="read-more" onclick="toggleDescription()">read more</span>
+                    </div>
+                    <img src="images/applejuice.jpeg" alt="Description of the image">
+                    <p class="old"><s>900 tg</s></p>
+                    <p class="new">400 tg</p>
+                        <form>
+                            <input type = "submit" value = "+" class = "addd">
+                            <input type = "submit" value = "-" class = "remove">
+                        </form>
+                </div>
+                <div class = "product" data-price="600">
+                    <div class="product-info">
+                        <p class="imya">Mango juice</p>
+                        <span style="margin-left: -10px;"class="read-more" onclick="toggleDescription()">read more</span>
+                    </div>
+                    <img src="images/mangojuice.jpeg" alt="Description of the image">
+                    <p class="old"><s>1300 tg</s></p>
+                    <p class="new">600 tg</p>
+                        <form>
+                            <input type = "submit" value = "+" class = "addd">
+                            <input type = "submit" value = "-" class = "remove">
+                        </form>
+                </div>
+                <div class="product" data-price="300">
+                    <div class="product-info">
+                        <p class="imya">Orange juice</p>
+                        <span class="read-more" onclick="toggleDescription()">read more</span>
+                    </div>
+                    <img src="images/orangejuice.jpeg" alt="Description of the image">
+                    <p class="old"><s>900 tg</s></p>
+                    <p class="new">300 tg</p>
+                    <form>
+                        <input type = "submit" value = "+" class = "addd">
+                        <input type = "submit" value = "-" class = "remove">
+                    </form>
+                </div>
+                
+                <div class="product" data-price="800">
+                    <div class="product-info">
+                        <p class="imya">Bagel</p>
+                        <span class="read-more" onclick="toggleDescription()">read more</span>
+                    </div>
+                    <img src="images/bagel.jpeg" alt="Description of the image">
+                    <p class="old"><s>1800 tg</s></p>
+                    <p class="new">800 tg</p>
+                    <form>
+                        <input type = "submit" value = "+" class = "addd">
+                        <input type = "submit" value = "-" class = "remove">
+                    </form>
+                </div>
+            </div>
+        </div>
+            
+            
+
+            
+        </div>
+            <footer>
+                <div class="cont" style="background-color: white;">
+                    <p style="text-align: center; font-size: 20px; font-family: serif;">Contacts</p>
+                    <p style="text-align: center; font-size: 15px; font-family: serif;"><b>Nurgul Bassanova</b><br> tel: +77084940775<br>e-mail: noorgoolearn@mail.ru</p>
+                    <p style="text-align: center; font-size: 15px; font-family: cursive; color: #462300;">All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+        <script src="readmore.js" defer></script>
+</body>
+</html>
