@@ -1,4 +1,6 @@
 # :green_heart: Croissave
+https://github.com/NurgulBassanova/FINAL_WEB/tree/main
+https://nurgulbassanova.github.io/FINAL_WEB/
 
 Croissave is an online marketplace focused on affordable and eco-friendly consumption by offering discounted restaurant items. Our platform connects users with restaurants that provide unsold products at reduced prices, contributing to both cost savings and sustainability.
 
